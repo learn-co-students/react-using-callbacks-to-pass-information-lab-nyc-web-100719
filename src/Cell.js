@@ -8,10 +8,19 @@ export default class Cell extends Component {
       color: this.props.color
     }
   }
-  
+
+//1. create method that when called, sets state that was passed down 
+  //as props from Matrix
+  handleClick = () => {
+    this.setState({
+      color: this.props.selectedColor
+    })
+  }
+
   render() {
+  //2. onClick return the method we created here
     return (
-      <div className="cell" style={{backgroundColor: this.state.color}}>
+      <div onClick={this.handleClick} className="cell" style={{backgroundColor: this.state.color}}>
       </div>
     )
   }
